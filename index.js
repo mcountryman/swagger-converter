@@ -363,9 +363,10 @@ prototype.buildPathComponents = function (basePath) {
  * @throws {SwaggerConverterError}
  */
 prototype.buildTypeProperties = function (oldType, allowRef) {
-  if (!oldType) {
+  if (!oldType || typeof oldType !== "string") {
     return {};
   }
+  
   assert(typeof allowRef === 'boolean');
 
   oldType = oldType.trim();
